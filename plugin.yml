@@ -1,0 +1,26 @@
+name: SinglePlayerSleep
+main: com.joelstoner.SinglePlayerSleep.PluginBase
+version: 2.13.1
+author: JoelGodOfWar
+
+commands:
+  cancel:
+    description: Cancels Single Player Sleep. Does not change to day.
+    usage: /<command>
+  sleep:
+    description: Notifies players that player wishes to sleep.
+    usage: /<command>
+
+permissions:
+  sps.hermits:
+    description: Allows one player to sleep to change to day. Without clearing local difficulty.
+    default: true
+  sps.downfall:
+    description: Clears Downfall upon SPS sleep.
+    default: true
+  sps.thunder:
+    description: Clears Thunderstorm upon SPS sleep
+    default: true
+  sps.cancel:
+    description: Allows canceling Single Player Sleep.
+    default: true
