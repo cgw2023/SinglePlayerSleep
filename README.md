@@ -18,6 +18,8 @@ Permissions:
     sps.thunder - Allows player to clear thunderstorm.
 
     sps.cancel - Allows player to cancel SPS of other players
+    
+    sp.command - Allows player to use /sleep command, instead of a bed.
 
     sps.* - Admin, grants all sps permissions.
 
