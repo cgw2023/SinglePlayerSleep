@@ -25,3 +25,5 @@ Permissions:
 
 
 If the player is the only player online, then the bed functions as normal, since the sleep function works before the 10 second delay.
+
+*/sleep still requires it to be night to use. ie - after 13187
