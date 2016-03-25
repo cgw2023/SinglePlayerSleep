@@ -8,6 +8,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLConnection;
 import java.util.logging.Logger;
 
 import org.bukkit.Bukkit;
@@ -27,10 +28,6 @@ import org.bukkit.scheduler.BukkitScheduler;
 import org.mcstats.MetricsLite;
 import org.spigotmc.Metrics;
 
-import com.joelstoner.SinglePlayerSleep.api.Updater;
-import com.joelstoner.SinglePlayerSleep.api.Updater.UpdateResult;
-import com.joelstoner.SinglePlayerSleep.api.Updater.UpdateType;
-
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
 import net.md_5.bungee.api.chat.HoverEvent;
@@ -40,11 +37,17 @@ import net.md_5.bungee.api.chat.TextComponent;
 @SuppressWarnings("unused")
 public class PluginBase extends JavaPlugin implements Listener{
 
-	public boolean UpdateCheck = true;
+	public boolean UpdateCheck;
+	public boolean debug;
 	private boolean UpdateAviable = false;
 	public final Logger logger = Logger.getLogger("Minecraft");
 	public boolean isCanceled = false;
 	public int transitionTask = 0;
+	private URL url;
+	private static long mobSpawningStartTime = 13187;
+	//mobs stop spawning at: 22813
+	//mobs start to burn at: 23600
+	private static long mobSpawningStopTime = 23600;
 	
 	@Override // TODO:
 	public void onEnable(){
@@ -72,6 +75,7 @@ public class PluginBase extends JavaPlugin implements Listener{
 		this.logger.info("**************************************************************");
 		this.logger.info(pdfFile.getName() + " version " + pdfFile.getVersion() + " Has been disabled");
 		this.logger.info("**************************************************************");
+		
 	}
 	
 	private void CheckForConfig() {
@@ -119,7 +123,6 @@ public class PluginBase extends JavaPlugin implements Listener{
 				transitionTask = this.getServer().getScheduler().scheduleSyncDelayedTask(this, new Runnable() {
 
 					public void run() {
-						// TODO Auto-generated method stub
 						//getLogger().info("runnable");
 						setDatime(player, world);
 					}
@@ -163,13 +166,43 @@ public class PluginBase extends JavaPlugin implements Listener{
 	    {
 	      if (args.length == 0)
 	      {
-	        p.sendMessage("§a[]===============[§4§lSinglePlayerSleep§a]===============[]");
-	        p.sendMessage("§4 Sleep in a bed to use.");
-	        p.sendMessage("§4 ");
-	        p.sendMessage("§4 /Sleep - subject to server admin approval");
-	        p.sendMessage("§4 /Cancel - Cancels SinglePlayerSleep");
-	        p.sendMessage("§a[]===============[§4§lSinglePlayerSleep§a]===============[]");
+	        p.sendMessage(ChatColor.GREEN + "[]===============[" + ChatColor.YELLOW + "SinglePlayerSleep" + ChatColor.GREEN + "]===============[]");
+	        p.sendMessage(ChatColor.GREEN + " Sleep in a bed to use.");
+	        p.sendMessage(ChatColor.WHITE + " ");
+	        p.sendMessage(ChatColor.WHITE + " /Sleep - subject to server admin approval");
+	        p.sendMessage(ChatColor.WHITE + " /Cancel - Cancels SinglePlayerSleep");
+	        p.sendMessage(ChatColor.WHITE + " ");
+	        if(p.isOp()){
+		        p.sendMessage(ChatColor.GOLD + " OP Commands");
+		        p.sendMessage(ChatColor.GOLD + " /SPS update - Check for update.");
+		        p.sendMessage(ChatColor.GOLD + " /SPS reload -  Reload config file.");
+		        p.sendMessage(ChatColor.GOLD + " /SPS check true/false - set auto-update-check to true or false.");
+	        }
+	        p.sendMessage(ChatColor.GREEN + "[]===============[" + ChatColor.YELLOW + "SinglePlayerSleep" + ChatColor.GREEN + "]===============[]");
 	        return true;
+	      }
+	      if(args[0].equalsIgnoreCase("check")){
+	    	  if(args.length< 1){
+					return false;
+			  }
+	    	  if(!args[1].equalsIgnoreCase("true") & !args[1].equalsIgnoreCase("false")){
+					sender.sendMessage(ChatColor.YELLOW + this.getName() + " §cArgument must be boolean. Usage: /sps check True/False");
+				}else if(args[1].contains("true") || args[1].contains("false")){
+					FileConfiguration config = getConfig();
+					config.set("auto-update-check", "" + args[1]);
+					
+					saveConfig();
+					Reloadconfig();
+					sender.sendMessage(ChatColor.YELLOW + this.getName() + " auto-update-check has been set to " + args[1]);
+					if(args[1].contains("false")){
+						sender.sendMessage(ChatColor.YELLOW + this.getName() + " will not check for updates!");
+					}else if(args[1].contains("true")){
+						sender.sendMessage(ChatColor.YELLOW + this.getName() + " will check for updates!");
+					}
+					reloadConfig();
+					return true;
+				}
+	    	  
 	      }
 		  if(args[0].equalsIgnoreCase("reload")){
 			  Reloadconfig();
@@ -177,12 +210,34 @@ public class PluginBase extends JavaPlugin implements Listener{
 		  if(args[0].equalsIgnoreCase("update")){
 			  // Player must be OP and auto-update-check must be true
 			if(p.isOp() && UpdateCheck){	
-			    Updater updater = new Updater(this, 98534, this.getFile(), UpdateType.NO_DOWNLOAD, true);
-				if (updater.getResult() == UpdateResult.UPDATE_AVAILABLE) {
-					p.sendMessage("New version available! " + updater.getLatestName());
+				try {
+				
+					URL url = new URL("https://raw.githubusercontent.com/JoelGodOfwar/SinglePlayerSleep/master/version.txt");
+					final URLConnection conn = url.openConnection();
+		            conn.setConnectTimeout(5000);
+		            final BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+		            final String response = reader.readLine();
+		            final String localVersion = this.getDescription().getVersion();
+		            if(debug){this.log("response= ." + response + ".");} //TODO: Logger
+		            if(debug){this.log("localVersion= ." + localVersion + ".");} //TODO: Logger
+		            if (!response.equalsIgnoreCase(localVersion)) {
+						p.sendMessage(ChatColor.YELLOW + this.getName() + ChatColor.RED + " New version available!");
+					}else{
+						p.sendMessage(ChatColor.YELLOW + this.getName() + ChatColor.GREEN + " Version is up to date!");
+					}
+				} catch (MalformedURLException e) {
+					this.log("MalformedURLException");
+					e.printStackTrace();
+				} catch (IOException e) {
+					this.log("IOException");
+					e.printStackTrace();
+				}catch (Exception e) {
+					this.log("Exception");
+					e.printStackTrace();
 				}
+				
 			}else{
-				p.sendMessage(p.getDisplayName() + " You are not OP, or auto-update-check is set to false in config.yml");
+				p.sendMessage(ChatColor.YELLOW + this.getName() + " " + p.getDisplayName() + " You are not OP, or auto-update-check is set to false in config.yml");
 			}
 		  }
 	    }
@@ -202,6 +257,12 @@ public class PluginBase extends JavaPlugin implements Listener{
 		}
 		if(cmd.getName().equalsIgnoreCase("sleep")){
 			Player player = (Player) sender;
+			World w = player.getWorld();
+			if(!IsNight(w)){
+				player.sendMessage("It must be night to sleep. " + IsNight(w));
+				return false;
+			}
+			
 			if(player.hasPermission("sps.command")) {
 				final Player player1 = (Player) sender;
 				final World world = player1.getWorld();
@@ -255,22 +316,60 @@ public class PluginBase extends JavaPlugin implements Listener{
 	}
 	  
 	@EventHandler
-	public void onPlayerJoinEvent(PlayerJoinEvent e)
+	public void onPlayerJoinEvent(PlayerJoinEvent event)
 	  {
-	    Player p = e.getPlayer();
-	    if ((p.isOp())  && 
-	      (UpdateAviable) )//&& 
-	      //(this.plugin.getConfig().getBoolean("SinglePlayerSleep.AutoUpdater")))
-	    {
-	      p.sendMessage("§4[§aSinglePlayerSleep§4] §a-=> Update is available! <=-");
-	      p.sendMessage("§aDownload: §ehttp://www.spigotmc.org/resources/SinglePlayerSleep-1-8-with-gui.7416/");
-	    }
+	    Player p = event.getPlayer();
+	    if(p.isOp() && UpdateCheck){	
+			try {
+			
+				URL url = new URL("https://raw.githubusercontent.com/JoelGodOfwar/SinglePlayerSleep/master/version.txt");
+				final URLConnection conn = url.openConnection();
+	            conn.setConnectTimeout(5000);
+	            final BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+	            final String response = reader.readLine();
+	            final String localVersion = this.getDescription().getVersion();
+	            if(debug){this.log("response= ." + response + ".");} //TODO: Logger
+	            if(debug){this.log("localVersion= ." + localVersion + ".");} //TODO: Logger
+	            if (!response.equalsIgnoreCase(localVersion)) {
+					p.sendMessage(ChatColor.YELLOW + this.getName() + ChatColor.RED + " New version available!");
+				}
+			} catch (MalformedURLException e) {
+				this.log("MalformedURLException");
+				e.printStackTrace();
+			} catch (IOException e) {
+				this.log("IOException");
+				e.printStackTrace();
+			}catch (Exception e) {
+				this.log("Exception");
+				e.printStackTrace();
+			}
+			
+		}
 	}
 	public void Reloadconfig(){
 		// Load config.
 		FileConfiguration config = getConfig();
-		reloadConfig();
-		UpdateCheck = config.getBoolean("auto-update-check");
+		String daString = config.getString("debug").replace("'", "") + ",";
+		
+		if(daString.contains("true")){
+			debug = true;
+		}else{
+			debug = false;
+		}
+		String daString2 = config.getString("auto-update-check").replace("'", "") + ",";
+		if(daString2.contains("true")){
+			UpdateCheck = true;
+		}else{
+			UpdateCheck = false;
+		}
+		
+		if(debug){this.log("UpdateCheck = " + UpdateCheck);} //TODO: Logger
 	}
+	
+	public static boolean IsNight(World w)
+    {
+    	long time = (w.getFullTime()) % 24000;
+    	return time >= mobSpawningStartTime && time < mobSpawningStopTime;
+    }
 
 }
