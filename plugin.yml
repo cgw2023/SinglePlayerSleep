@@ -1,6 +1,6 @@
 name: SinglePlayerSleep
 main: com.joelstoner.SinglePlayerSleep.PluginBase
-version: 2.13.3
+version: 2.13.7
 author: JoelGodOfWar
 
 commands:
@@ -29,4 +29,7 @@ permissions:
     default: true
   sps.command:
     description: Allows player to use /sleep command, instead of a bed.
-    default: true
+    default: op
+  sps.op:
+    description: Overrides all permissions.
+    default: false

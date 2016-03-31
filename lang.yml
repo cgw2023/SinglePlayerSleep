@@ -1,0 +1,96 @@
+touse:
+  en_US: Sleep in bed to use.
+  nl_NL: Slaap in een bed om te gebruiken.
+  lol_US: Sleep in bed 2 use.
+sleephelp:
+  en_US: subject to server admin approval
+  nl_NL: onder voorbehoud van goedkeuring server admin
+  lol_US: subject 2 server admin approval
+cancelhelp:
+  en_US: Cancels Single Player Sleep. Does not change to day.
+  nl_NL: Annuleert Enkele Speler Slapen. Veranderd het niet naar dag.
+  lol_US: Cancels Single Player Sleep. Doez not change 2 dai.
+spshelp:
+  en_US: Shows SinglePlayerSleep help.
+  nl_NL: Toont EnkeleSpelerSlapen hulp.
+  lol_US: Shows SinglePlayerSleep halp.
+spsupdate:
+  en_US: Check for update.
+  nl_NL: Controleer op updates.
+  lol_US: Check 4 updatez.
+spsreload:
+  en_US: Reload config file.
+  nl_NL: Herladen configuratie bestand.
+  lol_US: Reload config file.
+spscheck:
+  en_US: set auto-update-check to true or false.
+  nl_NL: zet auto-updates-controle op true of false.
+  lol_US: set auto-update-check 2 true or false.
+boolean:
+  en_US: Argument must be boolean. Usage
+  nl_NL: Argument moet boolean zijn. Gebruik
+  lol_US: Argument must be boolean. Usage
+checkset:
+  en_US: auto-update-check has been set to
+  nl_NL: auto-update-check is ingesteld op
+  lol_US: auto-update-check has been set 2
+nocheck:
+  en_US: will not check for updates!
+  nl_NL: zal niet controleren voor updates!
+  lol_US: will not check 4 updatez!
+yescheck:
+  en_US: will check for updates!
+  nl_NL: zal controleren op updates!
+  lol_US: will check 4 updatez!
+newvers:
+  en_US: New version available!
+  nl_NL: Nieuwe versie beschikbaar!
+  lol_US: New vershun available!
+curvers:
+  en_US: Version is up to date!
+  nl_NL: Versie is up -to-date!
+  lol_US: Vershun iz up 2 date!
+notop:
+  en_US: You are not OP, or auto-update-check is set to false in config.yml
+  nl_NL: U bent niet Operator of auto-update-check is ingesteld op false in config.yml
+  lol_US: U R not OP, or auto-update-check iz set 2 false in config.yml
+canceledsleep:
+  en_US: canceled sleeping.
+  nl_NL: heeft slapen geannuleerd.
+  lol_US: no cat nap.
+mustbenight:
+  en_US: It must be night to sleep.
+  nl_NL: Het moet 's nachts te slapen.
+  lol_US: It must be nite 2 nap.
+sleepcommand:
+  en_US: is sleeping <command>
+  nl_NL: is gaan slapen <commando>
+  lol_US: iz nappin <command>
+cancel:
+  en_US: CANCEL
+  nl_NL: ANNULEREN
+  lol_US: CANCEL
+clickcancel:
+  en_US: Click to cancel sleep
+  nl_NL: Klik hier om de slaap te annuleren
+  lol_US: Klik 2 stop nap
+noperm:
+  en_US: You do not have permission to Single Player Sleep!
+  nl_NL: Je hebt geen toestemming hoeft te Single Player slaap!
+  lol_US: U do not has permishun to Single Playr Nap! 
+setdownfall:
+  en_US: Clearing downfall
+  nl_NL: Clearing ondergang
+  lol_US: Clearin downfall
+setthunder:
+  en_US: Clearing thunderstorm
+  nl_NL: Clearing onweersbui
+  lol_US: Clearin thunderstorm
+settime:
+  en_US: Setting time to day
+  nl_NL: Tijd instellen tot dag
+  lol_US: Settin tiem 2 dai
+issleep:
+  en_US: is sleeping.
+  nl_NL: is gaan slapen.
+  lol_US: iz nappin
