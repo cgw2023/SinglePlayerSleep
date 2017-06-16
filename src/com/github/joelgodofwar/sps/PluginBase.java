@@ -35,8 +35,6 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitScheduler;
-import org.mcstats.MetricsLite;
-import org.spigotmc.Metrics;
 
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
@@ -114,13 +112,6 @@ public class PluginBase extends JavaPlugin implements Listener{
 		}
 		saveConfig();
 		ConfigAPI.Reloadconfig(this, null);
-		
-		try {
-			MetricsLite metrics = new MetricsLite(this);
-			metrics.start();
-		}catch (Exception e){
-			// Failed to submit the stats
-		}
 		
 	}
 	
@@ -225,7 +216,7 @@ public class PluginBase extends JavaPlugin implements Listener{
 			  }
 	    	  if(sender.isOp()||sender.hasPermission("sps.op")){
 	    		  if(!args[1].equalsIgnoreCase("true") & !args[1].equalsIgnoreCase("false")){
-						sender.sendMessage(ChatColor.YELLOW + this.getName() + " §c" + lang.get("boolean." + daLang + "") + ": /sps check True/False");
+						sender.sendMessage(ChatColor.YELLOW + this.getName() + " Â§c" + lang.get("boolean." + daLang + "") + ": /sps check True/False");
 	    		  }else if(args[1].contains("true") || args[1].contains("false")){
 	    			    FileConfiguration config = getConfig();
 						config.set("auto-update-check", "" + args[1]);
