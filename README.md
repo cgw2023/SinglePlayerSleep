@@ -1,16 +1,12 @@
 # SinglePlayerSleep
 
-Download Links
+Due to inactivity on the plugin, I have compiled it for 1.12 and removed mcstats (personal preference).
 
-https://www.spigotmc.org/resources/single-player-sleep.20173/
+1.12 download link: https://github.com/coldcode69/SinglePlayerSleep/raw/master/SinglePlayerSleep.jar
 
-http://dev.bukkit.org/bukkit-plugins/singleplayersleep/
+----
 
-If you use Java 8, this version will work with 1.10. https://github.com/JoelGodOfwar/SinglePlayerSleep/raw/master/1.10-jar/SinglePlayerSleep.jar
-
-## Introduction
-
-First Off, I watch several Hermitcrafters, and after seeing them have issues with their Single Player Sleep command block, rain messes it up. I decided to make this simple plugin.
+Original authors spigot link: https://www.spigotmc.org/resources/single-player-sleep.20173/
 
 ## Description
 
