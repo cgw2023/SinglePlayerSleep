@@ -1,6 +1,6 @@
 # SinglePlayerSleep
 
-Due to inactivity on the plugin, I have compiled it for 1.12 and removed mcstats (personal preference).
+Due to inactivity on the plugin, I have compiled it for 1.12 and removed mcstats.
 
 1.12 download link: https://github.com/coldcode69/SinglePlayerSleep/raw/master/SinglePlayerSleep.jar
 
