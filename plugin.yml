@@ -1,14 +1,14 @@
 name: SinglePlayerSleep
 main: com.github.joelgodofwar.sps.PluginBase
-version: 2.13.9
+version: 2.14.0
 author: JoelGodOfWar
 
 commands:
   cancel:
-    description: Cancels Single Player Sleep. Does not change to day.
+    description: Prevents a sleeping player from changing the time to day.
     usage: /<command>
   sleep:
-    description: Notifies players that player wishes to sleep.
+    description: Notifies players that a player wishes to sleep.
     usage: /<command>
   sps:
     description: Shows SinglePlayerSleep help.
@@ -16,7 +16,7 @@ commands:
 
 permissions:
   sps.hermits:
-    description: Allows one player to sleep to change to day. Without clearing local difficulty.
+    description: Allows one player to change the time to day when using a bed. Without clearing local difficulty.
     default: true
   sps.downfall:
     description: Clears Downfall upon SPS sleep.
@@ -28,7 +28,7 @@ permissions:
     description: Allows canceling Single Player Sleep.
     default: true
   sps.command:
-    description: Allows player to use /sleep command, instead of a bed.
+    description: Allows player to use the /sleep command, instead of a bed.
     default: op
   sps.op:
     description: Overrides all permissions.
