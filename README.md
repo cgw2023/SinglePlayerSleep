@@ -3,6 +3,7 @@
 Due to inactivity on the plugin, I have compiled it for 1.12 and removed mcstats.
 
 New features have now been added, and several improvements to the code. See changelog for details.
+
 Latest download link (for MC 1.12): https://github.com/coldcode69/SinglePlayerSleep/raw/master/SinglePlayerSleep.jar
 
 ----
