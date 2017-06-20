@@ -1,0 +1,9 @@
+Version 2.13.5
+
+Added permission for command based update checking (permission: "sps.update" command: "/sps update"). 
+Update check config setting now only controls the automatic notifications on join.
+Added config setting to disable all broadcast messages, while enabling anyone to sleep without the ability to cancel it (as requested by BinaryCrafter).
+Added config setting to set a minimum interval between sleep and cancel attempts, thus stopping players from using the plugin to spam chat (as requested by CloudeLecaw).
+Improved some descriptions in config.yml and plugin.yml.
+Added new language entries for the new features. They require translation into other languages (contact me if you can help translate).
+Improved code formatting and efficiency. Moved some repeated code into reusable functions.
