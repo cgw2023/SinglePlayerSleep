@@ -4,6 +4,10 @@ auto-update-check: true
 # If true this will disable all broadcast messages and allow anyone to sleep.
 unrestrictedsleep: false
 
+# Set the color of the players name in the broadcast messages.
+# NOTE: If you change the players display name color using other plugins then you should set this to "NONE".
+namecolor: NONE
+
 # Set the color of the [CANCEL] link text in broadcast messages.
 cancelcolor: RED
 
