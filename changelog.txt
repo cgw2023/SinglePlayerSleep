@@ -7,3 +7,8 @@ Added config setting to set a minimum interval between sleep and cancel attempts
 Improved some descriptions in config.yml and plugin.yml.
 Added new language entries for the new features. They require translation into other languages (contact me if you can help translate).
 Improved code formatting and efficiency. Moved some repeated code into reusable functions.
+
+First Version
+
+Removed mcstats.
+Compiled for MC version 1.12.
