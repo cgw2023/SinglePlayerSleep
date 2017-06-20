@@ -1,6 +1,6 @@
 name: SinglePlayerSleep
 main: com.github.joelgodofwar.sps.PluginBase
-version: 2.13.5
+version: 2.13.6
 authors: [JoelGodOfWar, ColdCode(coldcode69)]
 
 commands:
