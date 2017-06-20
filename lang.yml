@@ -1,21 +1,21 @@
 touse:
-  en_US: Sleep in bed to use.
+  en_US: Sleep in a bed to use.
   nl_NL: Slaap in een bed om te gebruiken.
   lol_US: Sleep in bed 2 use.
-  fr_FR: Dormir dans un lit à utiliser.
+  fr_FR: Dormir dans un lit Ã  utiliser.
   de_DE: Schlafen im Bett zu benutzen.
 sleephelp:
   en_US: subject to server admin approval
   nl_NL: onder voorbehoud van goedkeuring server admin
   lol_US: subject 2 server admin approval
-  fr_FR: sous réserve de serveur approbation de l'administrateur
+  fr_FR: sous rÃ©serve de serveur approbation de l'administrateur
   de_DE: vorbehaltlich Serveradministrator Genehmigung
 cancelhelp:
   en_US: Cancels Single Player Sleep. Does not change to day.
   nl_NL: Annuleert Single Player Sleep. Veranderd het niet naar dag.
   lol_US: Cancels Single Player Sleep. Doez not change 2 dai.
   fr_FR: Annule Single Player Sleep. Ne change pas le jour.
-  de_DE: Bricht Single Player Sleep . Ist nicht zu Tag ändern .
+  de_DE: Bricht Single Player Sleep . Ist nicht zu Tag Ã¤ndern .
 spshelp:
   en_US: Shows SinglePlayerSleep help.
   nl_NL: Toont SinglePlayerSleep hulp.
@@ -26,8 +26,8 @@ spsupdate:
   en_US: Check for update.
   nl_NL: Controleer op updates.
   lol_US: Check 4 updatez.
-  fr_FR: Vérifier la mise à jour.
-  de_DE: Auf Update überprüfen.
+  fr_FR: VÃ©rifier la mise Ã  jour.
+  de_DE: Auf Update Ã¼berprÃ¼fen.
 spsreload:
   en_US: Reload config file.
   nl_NL: Herladen configuratie bestand.
@@ -44,32 +44,32 @@ boolean:
   en_US: Argument must be boolean. Usage
   nl_NL: Argument moet boolean zijn. Gebruik
   lol_US: Argument must be boolean. Usage
-  fr_FR: L'argument doit être booléen . Usage
+  fr_FR: L'argument doit Ãªtre boolÃ©en . Usage
   de_DE: Argument muss boolean sein . Verwendung
 checkset:
   en_US: auto-update-check has been set to
   nl_NL: auto-update-check is ingesteld op
   lol_US: auto-update-check has been set 2
-  fr_FR: auto-update-check a été mis à
+  fr_FR: auto-update-check a Ã©tÃ© mis Ã 
   de_DE: auto-update-check wurde eingestellt
 nocheck:
   en_US: will not check for updates!
   nl_NL: zal niet controleren voor updates!
   lol_US: will not check 4 updatez!
-  fr_FR: ne seront pas les mises à jour!
+  fr_FR: ne seront pas les mises Ã  jour!
   de_DE: wird nicht nach Updates suchen !
 yescheck:
   en_US: will check for updates!
   nl_NL: zal controleren op updates!
   lol_US: will check 4 updatez!
-  fr_FR: va vérifier les mises à jour!
+  fr_FR: va vÃ©rifier les mises Ã  jour!
   de_DE: wird nach Updates gesucht !
 newvers:
   en_US: New version available!
   nl_NL: Nieuwe versie beschikbaar!
   lol_US: New vershun available!
   fr_FR: Nouvelle version disponible!
-  de_DE: Neue Version verfügbar!
+  de_DE: Neue Version verfÃ¼gbar!
 curvers:
   en_US: Version is up to date!
   nl_NL: Versie is up-to-date!
@@ -80,26 +80,26 @@ notop:
   en_US: You are not OP, or auto-update-check is set to false in config.yml
   nl_NL: U bent niet Operator of auto-update-check is ingesteld op false in config.yml
   lol_US: U R not OP, or auto-update-check iz set 2 false in config.yml
-  fr_FR: Vous n'êtes pas OP , ou auto-update-check est définie sur false dans config.yml
+  fr_FR: Vous n'Ãªtes pas OP , ou auto-update-check est dÃ©finie sur false dans config.yml
   de_DE: Sie sind nicht OP , oder Auto-Update-Check auf false gesetzt ist in config.yml
 canceledsleep:
   en_US: canceled sleeping.
   nl_NL: heeft slapen geannuleerd.
   lol_US: no cat nap.
-  fr_FR: couchage annulé.
+  fr_FR: couchage annulÃ©.
   de_DE: storniert schlafen.
 mustbenight:
   en_US: It must be night to sleep.
   nl_NL: Het moet nacht zijn om te slapen.
   lol_US: It must be nite 2 nap.
-  fr_FR: Il doit être la nuit pour dormir.
+  fr_FR: Il doit Ãªtre la nuit pour dormir.
   de_DE: Es muss nachts zu schlafen sein.
 sleepcommand:
   en_US: is sleeping <command>
   nl_NL: is gaan slapen <commando>
   lol_US: iz nappin <command>
   fr_FR: dort <command>
-  de_DE: schläft <command>
+  de_DE: schlÃ¤ft <command>
 cancel:
   en_US: CANCEL
   nl_NL: ANNULEREN
@@ -107,16 +107,16 @@ cancel:
   fr_FR: ANNULER
   de_DE: STORNIEREN
 clickcancel:
-  en_US: Click to cancel sleep
+  en_US: Click to cancel sleep.
   nl_NL: Klik hier om het slapen te annuleren
   lol_US: Klik 2 stop nap
   fr_FR: Cliquez pour annuler le sommeil
   de_DE: Klicken Sie Schlaf abbrechen
 noperm:
-  en_US: You do not have permission to use
+  en_US: You do not have permission to use this command.
   nl_NL: Je hebt geen toestemming om te gebruiken
   lol_US: U do not has permishun to uz
-  fr_FR: Vous n'êtes pas autorisé à utiliser
+  fr_FR: Vous n'Ãªtes pas autorisÃ© Ã  utiliser
   de_DE: Sie haben keine Berechtigung
 setdownfall:
   en_US: Clearing downfall
@@ -131,14 +131,32 @@ setthunder:
   fr_FR: Clearing orage
   de_DE: Clearing Gewitter
 settime:
-  en_US: Setting time to day
+  en_US: Setting time to day.
   nl_NL: Tijd instellen tot dag
   lol_US: Settin tiem 2 dai
-  fr_FR: Réglage de l'heure à jour
+  fr_FR: RÃ©glage de l'heure Ã  jour
   de_DE: Abbindezeit zu Tag
 issleep:
   en_US: is sleeping.
   nl_NL: is gaan slapen.
   lol_US: iz nappin
   fr_FR: dort.
-  de_DE: schläft.
+  de_DE: schlÃ¤ft.
+sleeplimit:
+  en_US: You cannot do that again so soon.
+  nl_NL: You cannot do that again so soon.
+  lol_US: You cannot do that again so soon.
+  fr_FR: You cannot do that again so soon.
+  de_DE: You cannot do that again so soon.
+nocancel:
+  en_US: You cannot cancel this sleep or there is nothing to canel.
+  nl_NL: You cannot cancel this sleep or there is nothing to canel.
+  lol_US: You cannot cancel this sleep or there is nothing to canel.
+  fr_FR: You cannot cancel this sleep or there is nothing to canel.
+  de_DE: You cannot cancel this sleep or there is nothing to canel.
+cancelunrestricted:
+  en_US: Canceling sleep is disabled.
+  nl_NL: Canceling sleep is disabled.
+  lol_US: Canceling sleep is disabled.
+  fr_FR: Canceling sleep is disabled.
+  de_DE: Canceling sleep is disabled.
