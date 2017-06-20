@@ -29,10 +29,6 @@ public class ConfigAPI  {
 			if(!file.exists()){
 				plugin.getLogger().info(pdfFile.getName() + ": config.yml not found, creating!");
 				plugin.saveDefaultConfig();
-				FileConfiguration config = plugin.getConfig();
-				
-				config.options().copyDefaults(true);
-				plugin.saveConfig();
 			}
 			}catch(Exception e){
 				e.printStackTrace();
@@ -65,7 +61,7 @@ public class ConfigAPI  {
 		}
 		String daString4 = config.getString("lang", "en_US").replace("'", "");
 		PluginBase.daLang = daString4;
-		if(PluginBase.debug){log("UpdateCheck = " + PluginBase.UpdateCheck, plugin);} //TODO: Logger
+		if(PluginBase.debug){log("UpdateCheck = " + PluginBase.UpdateCheck, plugin);}
 		if(player != null){
 			player.sendMessage(ChatColor.YELLOW + plugin.getName() + ChatColor.WHITE + " Configs Reloaded");
 		}
