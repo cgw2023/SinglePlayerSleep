@@ -2,6 +2,8 @@
 
 Due to inactivity on the plugin, I have compiled it for 1.12 and removed mcstats.
 
+New features have now been added, and several improvements to the code. See changelog for details.
+
 1.12 download link: https://github.com/coldcode69/SinglePlayerSleep/raw/master/SinglePlayerSleep.jar
 
 ----
@@ -21,7 +23,9 @@ sps.downfall - Allows player to clear downfall.
 
 sps.thunder - Allows player to clear thunderstorm.
 
-sps.cancel - Allows player to cancel SPS of other players
+sps.cancel - Allows player to cancel SPS of other players.
+
+sps.update - Allows the player to check for updates.
     
 sp.command - Allows player to use /sleep command, instead of a bed.
 
