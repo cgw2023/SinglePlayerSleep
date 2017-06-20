@@ -25,6 +25,8 @@ sps.thunder - Allows player to clear thunderstorm.
 
 sps.cancel - Allows player to cancel SPS of other players.
 
+sps.unrestricted - Allows the player to sleep without interruption.
+
 sps.update - Allows the player to check for updates.
     
 sp.command - Allows player to use /sleep command, instead of a bed.
