@@ -1,3 +1,7 @@
+Version 2.13.6
+
+Added option in the config for setting a colour for player names in broadcast messages.
+
 Version 2.13.5
 
 Added permission for command based update checking (permission: "sps.update" command: "/sps update"). 
@@ -8,7 +12,7 @@ Improved some descriptions in config.yml and plugin.yml.
 Added new language entries for the new features. They require translation into other languages (contact me if you can help translate).
 Improved code formatting and efficiency. Moved some repeated code into reusable functions.
 
-First Version
+Version 2.13.4
 
 Removed mcstats.
 Compiled for MC version 1.12.
