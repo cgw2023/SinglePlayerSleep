@@ -6,7 +6,7 @@ New features have now been added, and several improvements to the code. See chan
 
 Latest jar for Spigot 1.12: https://github.com/coldcode69/SinglePlayerSleep/raw/master/SinglePlayerSleep.jar
 
-Latest jar for craftbukkit 1.12: https://github.com/coldcode69/SinglePlayerSleep/blob/master/SinglePlayerSleepBukkit.jar
+Latest jar for craftbukkit 1.12: https://github.com/coldcode69/SinglePlayerSleep/raw/master/SinglePlayerSleepBukkit.jar
 
 ----
 
