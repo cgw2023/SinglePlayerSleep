@@ -144,19 +144,19 @@ issleep:
   de_DE: schläft.
 sleeplimit:
   en_US: You cannot do that again so soon.
-  nl_NL: You cannot do that again so soon.
-  lol_US: You cannot do that again so soon.
-  fr_FR: You cannot do that again so soon.
-  de_DE: You cannot do that again so soon.
+  nl_NL: Dat kun je niet zo snel meer doen.
+  lol_US: U CANT DO DAT AGAIN SO SOON.
+  fr_FR: Vous ne pouvez plus le faire si tôt.
+  de_DE: Das kann man so schnell nicht mehr machen.
 nocancel:
   en_US: You cannot cancel this sleep or there is nothing to canel.
-  nl_NL: You cannot cancel this sleep or there is nothing to canel.
-  lol_US: You cannot cancel this sleep or there is nothing to canel.
-  fr_FR: You cannot cancel this sleep or there is nothing to canel.
-  de_DE: You cannot cancel this sleep or there is nothing to canel.
+  nl_NL: U kunt deze slaap niet annuleren of er is niets aan Canel.
+  lol_US: U CANT CANCEL DIS SLEEP OR THAR IZ NOTHIN 2 CANEL.
+  fr_FR: Vous ne pouvez pas annuler ce sommeil ou il n'y a rien à canel.
+  de_DE: Sie können diesen Schlaf nicht abbrechen oder es gibt nichts zu annullieren.
 cancelunrestricted:
   en_US: Canceling sleep is disabled.
-  nl_NL: Canceling sleep is disabled.
-  lol_US: Canceling sleep is disabled.
-  fr_FR: Canceling sleep is disabled.
-  de_DE: Canceling sleep is disabled.
+  nl_NL: Slaap annuleren is uitgeschakeld.
+  lol_US: CANCELIN SLEEP IZ DISABLD.
+  fr_FR: L'annulation du sommeil est désactivée.
+  de_DE: Das Abbrechen des Schlafs ist deaktiviert.
