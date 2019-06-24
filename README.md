@@ -19,6 +19,10 @@ When a player right clicks on a bed, the plugin broadcasts `<player> is sleeping
 ## Permissions
 
 ```
+sps.update - description: Allows the player to check for updates.
+    
+sps.unrestricted - Allows the player to sleep uninterrupted. Other players will not be able to cancel it.
+
 sps.hermits - Allows player to sleep when other players are online.
 
 sps.downfall - Allows player to clear downfall.
@@ -34,4 +38,4 @@ sps.* - Admin, grants all sps permissions.
 
 If the player is the only player online, then the bed functions as normal, since the sleep function works before the 10 second delay.
 
-\*/sleep still requires it to be night to use. ie - after 13187
+\*/sleep still requires it to be night or storming to use. ie - after 13187
