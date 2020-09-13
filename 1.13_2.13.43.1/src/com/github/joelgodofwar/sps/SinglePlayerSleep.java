@@ -1685,10 +1685,10 @@ public class SinglePlayerSleep extends JavaPlugin implements Listener{
 				return ChatColor.translateAlternateColorCodes('&', nick);
 			}
 			if(debug){logDebug("Essnetials Nick=null using DisplayName");}
-			return player.getDisplayName();
+			return player.getName(); /** Use getName to remove prefixes added by other plugins */
 		}else{
 			if(debug){logDebug("player.getDisplayName()=" + player.getDisplayName());}
-			return player.getDisplayName();
+			return player.getName(); /** Use getName to remove prefixes added by other plugins */
 		}
 	}
 	
