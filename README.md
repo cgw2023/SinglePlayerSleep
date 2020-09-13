@@ -1,12 +1,15 @@
+# DEVELOPMENT
+This is a development branch, it will be closest to what I am currently working on within a few Dev versions.
+Dev versions are designated as 1.16_2.13.44.D5 which means it is the 5th version of the dev of 1.16_2.13.44
+
 # SinglePlayerSleep
 
 Download Links
 
-https://www.spigotmc.org/resources/single-player-sleep.20173/
+https://www.spigotmc.org/resources/single-player-sleep.68139/
 
-http://dev.bukkit.org/bukkit-plugins/singleplayersleep/
+https://dev.bukkit.org/projects/singleplayersleep2
 
-If you use Java 8, this version will work with 1.10. https://github.com/JoelGodOfwar/SinglePlayerSleep/raw/master/1.10-jar/SinglePlayerSleep.jar
 
 ## Introduction
 
