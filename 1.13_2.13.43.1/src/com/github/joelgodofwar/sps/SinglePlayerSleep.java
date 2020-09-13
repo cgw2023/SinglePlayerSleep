@@ -506,7 +506,7 @@ public class SinglePlayerSleep extends JavaPlugin implements Listener{
 							/** nickname parser */
 							String nickName = getNickname(player);
 							String playercolor = "";
-							if(!nickName.contains("ง")){
+							if(!nickName.contains("ยง")){
 								//logWarn("nickName ! contain SS");
 								playercolor = ChatColorUtils.setColorsByName(getConfig().getString("playernamecolor"));
 							}else{
@@ -674,7 +674,7 @@ public class SinglePlayerSleep extends JavaPlugin implements Listener{
 											/** nickname parser */
 											String nickName = getNickname(player);
 											String playercolor = "";
-											if(!nickName.contains("ง")){
+											if(!nickName.contains("ยง")){
 												//logWarn("nickName ! contain SS");
 												playercolor = ChatColorUtils.setColorsByName(getConfig().getString("playernamecolor"));
 											}else{
@@ -845,7 +845,7 @@ public class SinglePlayerSleep extends JavaPlugin implements Listener{
 				}
 				if(sender.isOp()||sender.hasPermission("sps.op")||sender.hasPermission("sps.*")){
 					if(!args[1].equalsIgnoreCase("true") & !args[1].equalsIgnoreCase("false")){
-						sender.sendMessage(ChatColor.YELLOW + this.getName() + " งc" + lang.get("boolean") + ": /sps check True/False");
+						sender.sendMessage(ChatColor.YELLOW + this.getName() + " ยงc" + lang.get("boolean") + ": /sps check True/False");
 					}else if(args[1].contains("true") || args[1].contains("false")){
 						FileConfiguration config = getConfig();
 						config.set("auto-update-check", "" + args[1]);
@@ -999,7 +999,7 @@ public class SinglePlayerSleep extends JavaPlugin implements Listener{
 									/** nickname parser */
 									String nickName = getNickname(sender);
 									String playercolor = "";
-									if(!nickName.contains("ง")){
+									if(!nickName.contains("ยง")){
 										//logWarn("nickName ! contain SS");
 										playercolor = ChatColorUtils.setColorsByName(getConfig().getString("playernamecolor"));
 									}else{
@@ -1082,7 +1082,7 @@ public class SinglePlayerSleep extends JavaPlugin implements Listener{
 									/** nickname parser */
 									String nickName = getNickname(sender);
 									String playercolor = "";
-									if(!nickName.contains("ง")){
+									if(!nickName.contains("ยง")){
 										//logWarn("nickName ! contain SS");
 										playercolor = ChatColorUtils.setColorsByName(getConfig().getString("playernamecolor"));
 									}else{
@@ -1396,7 +1396,7 @@ public class SinglePlayerSleep extends JavaPlugin implements Listener{
 				/** nickname parser */
 				String nickName = getNickname(sender);
 				String playercolor = "";
-				if(!nickName.contains("ง")){
+				if(!nickName.contains("ยง")){
 					//logWarn("nickName ! contain SS");
 					playercolor = ChatColorUtils.setColorsByName(getConfig().getString("playernamecolor"));
 				}else{
@@ -1477,7 +1477,7 @@ public class SinglePlayerSleep extends JavaPlugin implements Listener{
 					/** nickname parser */
 					String nickName = getNickname(sender);
 					String playercolor = "";
-					if(!nickName.contains("ง")){
+					if(!nickName.contains("ยง")){
 						//logWarn("nickName ! contain SS");
 						playercolor = ChatColorUtils.setColorsByName(getConfig().getString("playernamecolor"));
 					}else{
@@ -1669,7 +1669,7 @@ public class SinglePlayerSleep extends JavaPlugin implements Listener{
 				if(debug){logDebug("mcp.getNickname()=" + mcp.getNickname());}
 				if(debug){logDebug("ChatColor.translateAlternateColorCodes('&', nick)=" + ChatColor.translateAlternateColorCodes('&', nick));}
 				//ChatColor.translateAlternateColorCodes('&', nick);
-				//nick = nick.replaceAll("ง", "&");
+				//nick = nick.replaceAll("ยง", "&");
 				nick = Format.color(nick);
 				if(debug){logDebug("Format.FormatStringAll(nick)=" + nick);}
 				return nick;
@@ -1721,8 +1721,8 @@ public class SinglePlayerSleep extends JavaPlugin implements Listener{
 				String cancelcolor = ChatColorUtils.setColorsByName(getConfig().getString("cancelcolor"));
 				string2 = string2.replace(cancelcolor + lang.get("cancel") + msgcolor, "");
 				if(debug){logDebug("SAJM - string2=" + string2);}
-				Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "tellraw " + player.getName() + 
-				        " " + string2);
+				Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "tellraw \"" + player.getName() + 
+				        "\" " + string2);
 				if(debug){logDebug("SAJM - !perm & display - Broadcast");}
 				//player.sendRawMessage(string2);
 				//player.spigot().sendMessage(ComponentSerializer.parse(string2));
