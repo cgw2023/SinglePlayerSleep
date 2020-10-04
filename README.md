@@ -58,4 +58,5 @@ Fortunately, all of this can be pretty easy if you do the following.
 1. Run this maven command in your project directory: `mvn validate`
    * *What does this do?* Validate will install these jars into your local maven repository so when it comes time to package everything maven knows where to look. (You can find your local repository in your user directory, under `.m2`.)
 1. Run this maven command in your project directory: `mvn package`
+   * ***NOTE:*** The default version is "local-SNAPSHOT." If you want it to be something else, add the `-Drevision=` flag to the package command.
 1. Ta-da! You're done!
