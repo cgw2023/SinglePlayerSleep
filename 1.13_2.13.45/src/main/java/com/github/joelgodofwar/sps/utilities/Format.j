@@ -14,7 +14,7 @@ public class Format {
 	public static final int HEX_COLOR_CODE_LENGTH = 14;
 	public static final String DEFAULT_COLOR_CODE = String.valueOf(ChatColor.WHITE);
 	public static final String HEX_COLOR_CODE_PREFIX = "#";
-	public static final String BUKKIT_COLOR_CODE_PREFIX = "ง";
+	public static final String BUKKIT_COLOR_CODE_PREFIX = "ยง";
 	public static final String BUKKIT_HEX_COLOR_CODE_PREFIX = "x";
 	
 	/**public static String convertToJson(MineverseChatPlayer sender, String format, String chat) {
@@ -67,7 +67,7 @@ public class Format {
 		int indexStart = -1;
 		int indexEnd = -1;
 		String placeholder = "";
-		String lastCode = "งf";
+		String lastCode = "ยงf";
 		do {
 			Pattern pattern = Pattern.compile("(" + escapeAllRegex(prefix) + "|" + escapeAllRegex(nickname) + "|" + escapeAllRegex(suffix) + ")");
 			Matcher matcher = pattern.matcher(remaining);
@@ -121,9 +121,9 @@ public class Format {
 		int indexLink = -1;
 		int indexLinkEnd = -1;
 		String link = "";
-		String lastCode = "งf";
+		String lastCode = "ยงf";
 		do {
-			Pattern pattern = Pattern.compile("([a-zA-Z0-9ง\\-:/]+\\.[a-zA-Z/0-9ง\\-:_#]+(\\.[a-zA-Z/0-9.ง\\-:#\\?\\+=_]+)?)");
+			Pattern pattern = Pattern.compile("([a-zA-Z0-9ยง\\-:/]+\\.[a-zA-Z/0-9ยง\\-:_#]+(\\.[a-zA-Z/0-9.ยง\\-:#\\?\\+=_]+)?)");
 			Matcher matcher = pattern.matcher(remaining);
 			if(matcher.find()) {
 				indexLink = matcher.start();
@@ -151,17 +151,17 @@ public class Format {
 		String ts = "";
 		char[] ch = s.toCharArray();
 		for(int a = 0; a < s.length() - 1; a ++) {
-			if(String.valueOf(ch[a + 1]).matches("[lkomnLKOMN]") && ch[a] == 'ง') {
+			if(String.valueOf(ch[a + 1]).matches("[lkomnLKOMN]") && ch[a] == 'ยง') {
 				ts += String.valueOf(ch[a]) + ch[a + 1];
 				a ++;
 			}
-			else if(String.valueOf(ch[a + 1]).matches("[0123456789abcdefrABCDEFR]") && ch[a] == 'ง') {
+			else if(String.valueOf(ch[a + 1]).matches("[0123456789abcdefrABCDEFR]") && ch[a] == 'ยง') {
 				ts = String.valueOf(ch[a]) + ch[a + 1];
 				a ++;
 			}
-			else if(ch[a + 1] == 'x' && ch[a] == 'ง') {
+			else if(ch[a + 1] == 'x' && ch[a] == 'ยง') {
 				if(ch.length > a + 13) {
-					if(String.valueOf(ch[a + 3]).matches("[0123456789abcdefABCDEF]") && String.valueOf(ch[a + 5]).matches("[0123456789abcdefABCDEF]") && String.valueOf(ch[a + 7]).matches("[0123456789abcdefABCDEF]") && String.valueOf(ch[a + 9]).matches("[0123456789abcdefABCDEF]") && String.valueOf(ch[a + 11]).matches("[0123456789abcdefABCDEF]") && String.valueOf(ch[a + 13]).matches("[0123456789abcdefABCDEF]") && ch[a + 2] == 'ง' && ch[a + 4] == 'ง' && ch[a + 6] == 'ง' && ch[a + 8] == 'ง' && ch[a + 10] == 'ง' && ch[a + 12] == 'ง') {
+					if(String.valueOf(ch[a + 3]).matches("[0123456789abcdefABCDEF]") && String.valueOf(ch[a + 5]).matches("[0123456789abcdefABCDEF]") && String.valueOf(ch[a + 7]).matches("[0123456789abcdefABCDEF]") && String.valueOf(ch[a + 9]).matches("[0123456789abcdefABCDEF]") && String.valueOf(ch[a + 11]).matches("[0123456789abcdefABCDEF]") && String.valueOf(ch[a + 13]).matches("[0123456789abcdefABCDEF]") && ch[a + 2] == 'ยง' && ch[a + 4] == 'ยง' && ch[a + 6] == 'ยง' && ch[a + 8] == 'ยง' && ch[a + 10] == 'ยง' && ch[a + 12] == 'ยง') {
 						ts = String.valueOf(ch[a]) + ch[a + 1] + ch[a + 2] + ch[a + 3] + ch[a + 4] + ch[a + 5] + ch[a + 6] + ch[a + 7] + ch[a + 8] + ch[a + 9] + ch[a + 10] + ch[a + 11] + ch[a + 12] + ch[a + 13];
 						a += 13;
 					}
@@ -325,7 +325,7 @@ public class Format {
 			return "[" + Format.convertLinks(s) + "]";
 		}
 		else {
-			return "[" + convertToJsonColors("งf" + s) + "]";
+			return "[" + convertToJsonColors("ยงf" + s) + "]";
 		}
 	}
 	
