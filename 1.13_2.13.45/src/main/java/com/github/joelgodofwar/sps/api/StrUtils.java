@@ -28,6 +28,17 @@ public class StrUtils {
 			return input;
 		}
 	}
+	
+	public  static boolean stringContains(String string, String string2){
+		String[] string3 = string.split(", ");
+		for(int i = 0; i < string3.length; i++){
+			if(string3[i].equals(string2)){
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	// §x§1§1§1§1§1§1D§x§2§2§2§2§2§2e§x§3§3§3§3§3§3M§x§4§4§4§4§4§4o§x§5§5§5§5§5§5N
 	public static String parseRGBNameColors(String string){
 		String nickPrefix = "\"}";

@@ -67,7 +67,33 @@ public final class Ansi {
 	public static final String	BACKGROUND_CYAN		= "\u001B[46m";
 	public static final String	BACKGROUND_WHITE	= "\u001B[47m";
 
-	
+	public static String AnsiColor(String color, boolean check){
+		if(check){
+			switch (color){
+			case "BOLD":
+				return Ansi.BOLD;
+			case "RESET":
+				return Ansi.RESET;
+			case "BLACK":
+				return Ansi.BLACK;
+			case "CYAN":
+				return Ansi.CYAN;
+			case "RED":
+				return Ansi.RED;
+			case "GREEN":
+				return Ansi.GREEN;
+			case "YELLOW":
+				return Ansi.YELLOW;
+			case "BLUE":
+				return Ansi.BLUE;
+			case "MAGENTA":
+				return Ansi.MAGENTA;
+			case "WHITE":
+				return Ansi.WHITE;
+			}
+		}
+		return "";
+	}
 	
 	final private String[] codes;
 	final private String codes_str; 
