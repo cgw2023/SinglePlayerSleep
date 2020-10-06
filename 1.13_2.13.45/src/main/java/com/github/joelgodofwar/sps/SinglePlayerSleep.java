@@ -100,7 +100,9 @@ public class SinglePlayerSleep extends JavaPlugin implements Listener{
 	public boolean isBloodMoon = false;
 	public String jsonColorString = "\"},{\"text\":\"<text>\",\"color\":\"<color>\"},{\"text\":\"";
 	public boolean is116 = false;
-	
+	String blacklist_sleep;
+	String blacklist_dayskip;
+	boolean colorful_console;
 	
 	@Override // TODO: onEnable
 	public void onEnable(){
@@ -108,13 +110,16 @@ public class SinglePlayerSleep extends JavaPlugin implements Listener{
 		debug = getConfig().getBoolean("debug", false);
 		daLang = getConfig().getString("lang", "en_US");
 		displaycancel = getConfig().getBoolean("display_cancel", true);
-		log("displaycancel=" + displaycancel);
+		//log("displaycancel=" + displaycancel);
 		config = new YmlConfiguration();
 		oldconfig = new YamlConfiguration();
+		blacklist_sleep = config.getString("blacklist.sleep", "");
+		blacklist_dayskip = config.getString("blacklist.dayskip", "");
+		colorful_console = getConfig().getBoolean("colorful_console", true);
 		
 		PluginDescriptionFile pdfFile = this.getDescription();
-		SinglePlayerSleep.logger.info(Ansi.GREEN + "**************************************" + Ansi.RESET);
-		SinglePlayerSleep.logger.info(Ansi.YELLOW + pdfFile.getName() + " v" + pdfFile.getVersion() + Ansi.RESET + " Loading...");
+		SinglePlayerSleep.logger.info(Ansi.AnsiColor("GREEN", colorful_console) +  "**************************************" + Ansi.AnsiColor("RESET", colorful_console));
+		SinglePlayerSleep.logger.info(Ansi.AnsiColor("YELLOW", colorful_console) + pdfFile.getName() + " v" + pdfFile.getVersion() + Ansi.AnsiColor("RESET", colorful_console) + " Loading...");
 		/** DEV check **/
 		File jarfile = this.getFile().getAbsoluteFile();
 		if(jarfile.toString().contains("-DEV")){
@@ -198,7 +203,7 @@ public class SinglePlayerSleep extends JavaPlugin implements Listener{
 		}
 		String checkconfigversion = oldconfig.getString("version", "1.0.0");
 		if(checkconfigversion != null){
-			if(!checkconfigversion.equalsIgnoreCase("1.0.0")){
+			if(!checkconfigversion.equalsIgnoreCase("1.0.3")){
 				needConfigUpdate = true;
 			}
 		}
@@ -229,6 +234,9 @@ public class SinglePlayerSleep extends JavaPlugin implements Listener{
 			config.set("auto_update_check", oldconfig.get("auto_update_check", true));
 			config.set("debug", oldconfig.get("debug", false));
 			config.set("lang", oldconfig.get("lang", "en_US"));
+			config.set("blacklist.sleep", oldconfig.get("blacklist.sleep", "world_nether, world_the_end"));
+			config.set("blacklist.dayskip", oldconfig.get("blacklist.dayskip", "world_nether, world_the_end"));
+			config.set("colorful_console", oldconfig.get("colorful_console", true));
 			config.set("clearrain_enabled", oldconfig.get("clearrain_enabled", false));
 			config.set("unrestrictedsleep", oldconfig.get("unrestrictedsleep", false));
 			config.set("waketime", oldconfig.get("waketime", "NORMAL"));
@@ -238,6 +246,7 @@ public class SinglePlayerSleep extends JavaPlugin implements Listener{
 			config.set("unrestricteddayskipper", oldconfig.get("unrestricteddayskipper", false));
 			config.set("dayskipperitemrequired", oldconfig.get("dayskipperitemrequired", true));
 			config.set("cancelcolor", oldconfig.get("cancelcolor", "RED"));
+			config.set("cancelbracketcolor", oldconfig.get("cancelbracketcolor", "YELLOW"));
 			config.set("sleepmsgcolor", oldconfig.get("sleepmsgcolor", "STRIKETHROUGHYELLOW"));
 			config.set("playernamecolor", oldconfig.get("playernamecolor", "WHITE"));
 			config.set("display_cancel", oldconfig.get("display_cancel", true));
@@ -271,7 +280,7 @@ public class SinglePlayerSleep extends JavaPlugin implements Listener{
 					UpdateAvailable = true; // TODO: Update Checker
 					UColdVers = updater.oldVersion();
 					UCnewVers = updater.newVersion();
-					Bukkit.getConsoleSender().sendMessage(this.getName() + Ansi.RED + " v" + UColdVers + Ansi.RESET +" " + lang.get("newvers") + Ansi.GREEN + " v" + UCnewVers + Ansi.RESET);
+					Bukkit.getConsoleSender().sendMessage(this.getName() + Ansi.AnsiColor("RED", colorful_console) + " v" + UColdVers + Ansi.AnsiColor("RESET", colorful_console) +" " + lang.get("newvers") + Ansi.AnsiColor("GREEN", colorful_console) + " v" + UCnewVers + Ansi.AnsiColor("RESET", colorful_console));
 					Bukkit.getConsoleSender().sendMessage(UpdateChecker.getResourceUrl());
 				}else{
 					UpdateAvailable = false;
@@ -329,7 +338,7 @@ public class SinglePlayerSleep extends JavaPlugin implements Listener{
 		}else{
 			is116 = true;
 		}
-		if(debug){logDebug(Ansi.BOLD + Ansi.RED + "is116=" + is116 + Ansi.RESET);}
+		if(debug){logDebug(Ansi.AnsiColor("BOLD", colorful_console) + Ansi.AnsiColor("RED", colorful_console) + "is116=" + is116 + Ansi.AnsiColor("RESET", colorful_console));}
 		try {
 			//PluginBase plugin = this;
 			Metrics metrics  = new Metrics(this);
@@ -430,9 +439,9 @@ public class SinglePlayerSleep extends JavaPlugin implements Listener{
 	
 	public void consoleInfo(String state) {
 		PluginDescriptionFile pdfFile = this.getDescription();
-		SinglePlayerSleep.logger.info(Ansi.GREEN + "**************************************" + Ansi.RESET);
-		SinglePlayerSleep.logger.info(Ansi.YELLOW + pdfFile.getName() + " v" + pdfFile.getVersion() + Ansi.RESET + " is " + state);
-		SinglePlayerSleep.logger.info(Ansi.GREEN + "**************************************" + Ansi.RESET);
+		SinglePlayerSleep.logger.info(Ansi.AnsiColor("GREEN", colorful_console) + "**************************************" + Ansi.AnsiColor("RESET", colorful_console));
+		SinglePlayerSleep.logger.info(Ansi.AnsiColor("YELLOW", colorful_console) + pdfFile.getName() + " v" + pdfFile.getVersion() + Ansi.AnsiColor("RESET", colorful_console) + " is " + state);
+		SinglePlayerSleep.logger.info(Ansi.AnsiColor("GREEN", colorful_console) + "**************************************" + Ansi.AnsiColor("RESET", colorful_console));
 	}
 	
 	public String nameColor() {
@@ -488,12 +497,19 @@ public class SinglePlayerSleep extends JavaPlugin implements Listener{
 				return;
 			}
 		}
-		if(getConfig().getBoolean("enabledayskipper", false)){
+		if(getConfig().getBoolean("enabledayskipper", false)){ // TODO: Dayskip
 			/* Check if it's Day for DaySkipper */
 			if(IsDay(player.getWorld())){
 				if(debug){logDebug(" DS it is Day");}
 				/* OK it's day check if it's a Black bed. */
-				
+				if(!player.hasPermission("sps.op")){ // TODO: Dayskip blacklist Check
+					if(blacklist_dayskip != null&&!blacklist_dayskip.isEmpty()){
+						if(StrUtils.stringContains(blacklist_dayskip, world.getName().toString())){
+							log("EDE - World - On blacklist.");
+							return;
+						}
+					}
+				}
 				/* OK it is a Black bed, now check if they have the DaySkipper item. */
 				/*String daMainHand = player.getInventory().getItemInMainHand().getItemMeta().getDisplayName();
 				log("daMainHand=" + daMainHand);
@@ -525,8 +541,9 @@ public class SinglePlayerSleep extends JavaPlugin implements Listener{
 						/* OK they have the DaySkipper item, now check for the permission*/
 						if(player.hasPermission("sps.dayskipper")||player.hasPermission("sps.op")||player.hasPermission("sps.*")){
 							if(debug){logDebug(" DS Has perm or is op. ...");}
+							String CancelBracketColor = ChatColorUtils.setColorsByName(getConfig().getString("cancelbracketcolor", "YELLOW"));
 							/* OK they have the perm, now lets notify the server and schedule the runnable */
-							String damsg = "[\"\",{\"text\":\"sleepmsg [\"},{\"text\":\"dacancel\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/spscancel\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"tooltip\"}},{\"text\":\"]\"}]";
+							String damsg = "[\"\",{\"text\":\"sleepmsg " + CancelBracketColor + "[\"},{\"text\":\"dacancel\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/spscancel\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"tooltip\"}},{\"text\":\"" +CancelBracketColor + "]\"}]";
 							String msgcolor = ChatColorUtils.setColorsByName(getConfig().getString("sleepmsgcolor", "YELLOW"));
 								if(debug){logDebug(" DS ... msgcolor=" + msgcolor);}
 							String sleepmsg = "" + lang.get("dayskipmsg","<player> wants to sleep the day away...");
@@ -601,6 +618,14 @@ public class SinglePlayerSleep extends JavaPlugin implements Listener{
 			if(event.getBedEnterResult() == BedEnterResult.OK){
 				//Check it's night or if storm
 				if (IsNight(player.getWorld())||player.getWorld().isThundering()) {
+					if(!player.hasPermission("sps.op")){ // TODO: Sleep Blacklist Check
+						if(blacklist_sleep != null&&!blacklist_sleep.isEmpty()){
+							if(StrUtils.stringContains(blacklist_sleep, world.getName().toString())){
+								log("EDE - World - On blacklist.");
+								return;
+							}
+						}
+					}
 					//Set default timer for when the player has never slept before
 					long timer = 0;
 					if(debug){logDebug("PIS IN... " + player.getName() + " is sleeping.");}
@@ -689,9 +714,13 @@ public class SinglePlayerSleep extends JavaPlugin implements Listener{
 											String dastring = "" + lang.get("issleep");
 												
 											dastring = dastring.replace("<player>", "");
+											String msgcolor = ChatColorUtils.setColorsByName(getConfig().getString("sleepmsgcolor", "YELLOW"));
+											if(debug){logDebug(" PIS ... msgcolor=" + msgcolor);}
+											String CancelBracketColor = ChatColorUtils.setColorsByName(getConfig().getString("cancelbracketcolor", "YELLOW"));
+											if(debug){logDebug(" PIS ... CancelBracketColor=" + CancelBracketColor);}
 											//String damsg = "[\"\",{\"text\":\"player\"},{\"text\":\" is sleeping [\"},{\"text\":\"dacancel\",\"color\":\"red\",\"bold\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/cancel\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"\",\"extra\":[{\"text\":\"tooltip\"}]}}},{\"text\":\"]\",\"color\":\"none\",\"bold\":false}]";
 											//String damsg = "[\"\",{\"text\":\"sleepmsg [\"},{\"text\":\"dacancel\",\"color\":\"red\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/cancel\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"tooltip\"}},{\"text\":\"]\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/cancel\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"tooltip\"}}]";
-											String damsg = "[\"\",{\"text\":\"sleepmsg [\"},{\"text\":\"dacancel\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/spscancel\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"tooltip\"}},{\"text\":\"]\"}]";
+											String damsg = "[\"\",{\"text\":\"sleepmsg " + CancelBracketColor + "[\"},{\"text\":\"dacancel\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/spscancel\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"tooltip\"}},{\"text\":\"" + CancelBracketColor + "]\"}]";
 											String sleepmsg;
 											if (getConfig().getBoolean("randomsleepmsgs")){
 												int maxmsgs = getConfig().getInt("numberofsleepmsgs");
@@ -713,8 +742,7 @@ public class SinglePlayerSleep extends JavaPlugin implements Listener{
 											}
 											if(debug){logDebug(" PIS sleepmsg=" + sleepmsg);}
 											//sleepmsg = "<player> Has passed Go, Collected their $200, and checked in at Old Kent Road!";
-												String msgcolor = ChatColorUtils.setColorsByName(getConfig().getString("sleepmsgcolor", "YELLOW"));
-												if(debug){logDebug(" PIS ... msgcolor=" + msgcolor);}
+												
 												/**if(sleepmsg.length() > 54){
 													sleepmsg = addChar(sleepmsg, msgcolor, 55);
 												}*/
@@ -952,7 +980,7 @@ public class SinglePlayerSleep extends JavaPlugin implements Listener{
 							}
 						}catch(Exception e) {
 							sender.sendMessage(ChatColor.RED + "Could not process update check");
-							Bukkit.getConsoleSender().sendMessage(Ansi.RED + "Could not process update check");
+							Bukkit.getConsoleSender().sendMessage(Ansi.AnsiColor("RED", colorful_console) + "Could not process update check");
 							e.printStackTrace();
 						}
 					}
@@ -1396,7 +1424,18 @@ public class SinglePlayerSleep extends JavaPlugin implements Listener{
 				return false;
 			}
 			
-			if(sender.hasPermission("sps.command")||sender.hasPermission("sps.op")||sender.hasPermission("sps.*")) {
+			if(sender.hasPermission("sps.command")||sender.hasPermission("sps.op")) {
+				if(sender instanceof Player){ // TODO: Sleep Command Blacklist Check
+					if(!sender.hasPermission("sps.op")){
+						Player player = (Player) sender;
+						if(blacklist_sleep != null&&!blacklist_sleep.isEmpty()){
+							if(StrUtils.stringContains(blacklist_sleep, player.getWorld().getName().toString())){
+								log("EDE - World - On blacklist.");
+								return false;
+							}
+						}
+					}
+				}
 				//final Player player1 = (Player) sender;
 				final CommandSender daSender = sender;
 				World world;
@@ -1469,7 +1508,8 @@ public class SinglePlayerSleep extends JavaPlugin implements Listener{
 				//String dastring = "" + lang.get("sleepcommand");
 				//dastring = dastring.replace("<player>", "");
 				//String damsg = "[\"\",{\"text\":\"player\"},{\"text\":\" is sleeping [\"},{\"text\":\"dacancel\",\"color\":\"red\",\"bold\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/cancel\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"\",\"extra\":[{\"text\":\"tooltip\"}]}}},{\"text\":\"]\",\"color\":\"none\",\"bold\":false}]";
-				String damsg = "[\"\",{\"text\":\"sleepmsg [\"},{\"text\":\"dacancel\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/spscancel\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"tooltip\"}},{\"text\":\"]\"}]";
+				String CancelBracketColor = ChatColorUtils.setColorsByName(getConfig().getString("cancelbracketcolor", "YELLOW"));
+				String damsg = "[\"\",{\"text\":\"sleepmsg " + CancelBracketColor + "[\"},{\"text\":\"dacancel\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/spscancel\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"tooltip\"}},{\"text\":\"" + CancelBracketColor + "]\"}]";
 					String msgcolor1 = ChatColorUtils.setColorsByName(getConfig().getString("sleepmsgcolor", "YELLOW"));
 				damsg = damsg.replace("sleepmsg", sleepmsg);
 				damsg = ChatColorUtils.setColors(damsg);
@@ -1538,6 +1578,14 @@ public class SinglePlayerSleep extends JavaPlugin implements Listener{
 				if(sender instanceof Player){
 					Player player = (Player) sender;
 					world = player.getWorld();
+					if(!sender.hasPermission("sps.op")){ // TODO: DaySkip Command Blacklist Check
+						if(blacklist_dayskip != null&&!blacklist_dayskip.isEmpty()){
+							if(StrUtils.stringContains(blacklist_dayskip, world.getName().toString())){
+								log("EDE - World - On blacklist.");
+								return false;
+							}
+						}
+					}
 				}else{
 					world = Bukkit.getWorlds().get(0);
 				}
@@ -1549,8 +1597,9 @@ public class SinglePlayerSleep extends JavaPlugin implements Listener{
 				}
 				if(sender.hasPermission("sps.dayskipcommand")||sender.hasPermission("sps.op")||sender.hasPermission("sps.*")){
 					if(debug){logDebug(" DS Has perm or is op. ...");}
+					String CancelBracketColor = ChatColorUtils.setColorsByName(getConfig().getString("cancelbracketcolor", "YELLOW"));
 					/* OK they have the perm, now lets notify the server and schedule the runnable */
-					String damsg = "[\"\",{\"text\":\"sleepmsg [\"},{\"text\":\"dacancel\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/spscancel\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"tooltip\"}},{\"text\":\"]\"}]";
+					String damsg = "[\"\",{\"text\":\"sleepmsg " + CancelBracketColor + "[\"},{\"text\":\"dacancel\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/spscancel\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"tooltip\"}},{\"text\":\"" + CancelBracketColor + "]\"}]";
 					String msgcolor = ChatColorUtils.setColorsByName(getConfig().getString("sleepmsgcolor", "YELLOW"));
 						if(debug){logDebug(" DS ... msgcolor=" + msgcolor);}
 					String sleepmsg = "" + lang.get("dayskipmsgcommand","<player> wants to sleep the day away...<command>");
@@ -1632,13 +1681,13 @@ public class SinglePlayerSleep extends JavaPlugin implements Listener{
 	}
 	
 	public  void log(String dalog){// TODO: Log
-		SinglePlayerSleep.logger.info(Ansi.YELLOW + this.getName() + " v" + this.getDescription().getVersion() + Ansi.RESET + " " + dalog);
+		SinglePlayerSleep.logger.info(Ansi.AnsiColor("YELLOW", colorful_console) + this.getName() + " v" + this.getDescription().getVersion() + Ansi.AnsiColor("RESET", colorful_console) + " " + dalog);
 	}
 	public  void logDebug(String dalog){
-		log(Ansi.RED + " [DEBUG] " + Ansi.RESET + dalog);
+		log(Ansi.AnsiColor("RED", colorful_console) + " [DEBUG] " + Ansi.AnsiColor("RESET", colorful_console) + dalog);
 	}
 	public void logWarn(String dalog){
-		log(Ansi.RED + " [WARNING] " + Ansi.RESET  + dalog);
+		log(Ansi.AnsiColor("RED", colorful_console) + " [WARNING] " + Ansi.AnsiColor("RESET", colorful_console)  + dalog);
 	}
 	public void broadcast(String message, World world){
 		String damsg = "{\"text\":\"broadcastString\"}";
@@ -1826,4 +1875,30 @@ public class SinglePlayerSleep extends JavaPlugin implements Listener{
 		strVersion = strVersion.replace("MC: ", "").replace(")", "");
 		return strVersion;
 	}
+	/**
+	public String AnsiColor(String color, boolean check){
+		if(check){
+			switch (color){
+			case "RESET":
+				return Ansi.AnsiColor("RESET", colorful_console);
+			case "BLACK":
+				return Ansi.AnsiColor("BLACK", colorful_console);
+			case "CYAN":
+				return Ansi.AnsiColor("CYAN", colorful_console);
+			case "RED":
+				return Ansi.AnsiColor("RED", colorful_console);
+			case "GREEN":
+				return Ansi.AnsiColor("GREEN", colorful_console);
+			case "YELLOW":
+				return Ansi.AnsiColor("YELLOW", colorful_console);
+			case "BLUE":
+				return Ansi.AnsiColor("BLUE", colorful_console);
+			case "MAGENTA":
+				return Ansi.AnsiColor("MAGENTA", colorful_console);
+			case "WHITE":
+				return Ansi.AnsiColor("WHITE", colorful_console);
+			}
+		}
+		return "";
+	}*/
 }
