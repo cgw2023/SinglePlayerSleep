@@ -1,5 +1,5 @@
 # DO NOT CHANGE VERSION
-version: 1.0.0
+version: 1.0.3
 
 # Change to false to stop auto-update-check.
 auto_update_check: true
@@ -10,6 +10,14 @@ debug: false
 
 # Set the language to use, en_US, nl_NL, lol_US, fr_FR, de_DE, zh_CN, cs-CZ, pt_BR
 lang: en_US
+
+# Set Blacklist worlds, Names are Case Sensitive, World does not equal world
+blacklist:
+  sleep: world_nether, world_the_end
+  dayskip: world_nether, world_the_end
+
+# Enables fancy ANSI colors in console. (Disable if you're getting weird characters in the console)
+colorful_console: true
 
 # Set whether to allow player to stop rain when it is not night.
 clearrain_enabled: false
@@ -37,6 +45,7 @@ dayskipperitemrequired: true
 # DARK_AQUA, DARK_BLUE, DARK_GRAY, DARK_GREEN, DARK_RED, DARK_PURPLE, LIGHT_PURPLE
 # MAGIC, BOLD, STRIKETHROUGH, UNDERLINE, ITALIC, RESET
 cancelcolor: RED
+cancelbracketcolor: YELLOW
 # Sleep message color, see above
 sleepmsgcolor: WHITE
 # Player name color, see above
