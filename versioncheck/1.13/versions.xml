@@ -1,12 +1,10 @@
 <versions>
   <release>
-    <version>1.13_2.13.49</version>
-    <notes>D1- Added support for Bloodmoon Advanced.
-D2- Added a check for DisplayName when Essentials nick is returned as null.
-D3- Added color formatter for displayNames when Essentials/VentureChat/HexNicks returns null
-D4- Changed method for formatting displayNames in re: above.
-D5 Added debug checks on nickname getter.
-D6 Fixed issue with chars in HexNicks nicknames. </notes>
+    <version>1.13_2.13.50</version>
+    <notes>D1	Added a config option for when a nickname is not set to use displayname or username.
+D2	Added debug logs for previous changes.
+D3	Added more debug code, and changed some defaults.
+D4	Switched to i18n language files, reworked update checker.</notes>
     <link>https://www.spigotmc.org/resources/singleplayersleep.68139/history</link>
   </release>
   <developer>
